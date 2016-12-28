@@ -19,19 +19,24 @@
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.10",
+    "babel-preset-flow": "^1.0.0",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "chai": "^3.5.0",
     "del": "^2.2.2",
     "eslint": "^3.12.2",
     "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-flowtype": "^2.29.1",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "2.2.3",
     "eslint-plugin-react": "^6.8.0",
+    "flow-bin": "^0.37.4",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-eslint": "^3.0.1",
+    "gulp-flowtype": "^1.0.0",
     "gulp-mocha": "^3.0.1",
     "mocha": "^3.2.0",
     "sinon": "^1.17.6",
@@ -41,14 +46,20 @@
   "babel": {
     "presets": [
       "latest",
-      "react"
+      "react",
+      "flow"
     ],
     "compact": false
   },
   "eslintConfig": {
-    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb",
+      "plugin:flowtype/recommended"
+    ],
     "plugins": [
-      "import"
+      "import",
+      "flowtype"
     ],
     "env": {
       "browser": true

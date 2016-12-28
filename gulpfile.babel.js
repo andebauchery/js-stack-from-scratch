@@ -3,6 +3,7 @@
 import gulp from 'gulp';
 import mocha from 'gulp-mocha';
 import babel from 'gulp-babel';
+import flow from 'gulp-flowtype';
 import del from 'del';
 import eslint from 'gulp-eslint';
 import webpack from 'webpack-stream';
@@ -35,7 +36,8 @@ gulp.task('lint', () =>
   ])
     .pipe(eslint())
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError()),
+    .pipe(eslint.failAfterError())
+    .pipe(flow({ abort: true })),
 );
 
 gulp.task('build', ['lint', 'clean'], () =>
