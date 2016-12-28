@@ -6,4 +6,5 @@ node_modules/
 /lib/
 /dist/client-bundle.js*
 /dist/gulpfile.babel.js*
-/dist/dist
+/dist/dist/
+/dist/src/
